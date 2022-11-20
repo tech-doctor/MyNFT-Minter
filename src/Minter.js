@@ -20,19 +20,16 @@ const nftMintReducer = (state, action) => {
         ...state,
         minting: true,
       }
-    case "MINT" : 
-      if(action.payload === "success" || action.payload === "error"){
-        return{
-          ...state,
-          minting:false,
-          status:action.status
-        }
-      }
+    case "MINT" :
       return {
         ...state,
         minting: false,
-        status: action.status
+        status: action.status,
+        name: "",
+        description: "",
+        url: ""
       }
+    
     case "ACCOUNT_CHANGES" :
       if(action.payload.length > 0 ){
         return{
@@ -76,10 +73,10 @@ const initialState = {
 
 const Minter = (props) => {
   const [state, dispatch] = useReducer(nftMintReducer, initialState);
-  console.log(state)
+  //console.log(state)
   //State variables
   const {name, description, url, walletAddress, status, minting} = state;
-  console.log(window);
+  //console.log(window);
  
   useEffect(async () => {
     const {address, status} = await getCurrentwalletConnected();
@@ -104,9 +101,9 @@ const Minter = (props) => {
   const onMintPressed = async () => {
     dispatch({type: 'MINTING'});
     const {statusMessage, status} = await mintNFT(url, name, description);
-    dispatch({type: 'MINT', status:statusMessage, payload: status});
-    // console.log(statusMessage,status);
-    //console.log(url, name, description);
+    dispatch({type: 'MINT', 
+    status:statusMessage, 
+    payload: status});
   };
 
   return (
@@ -134,6 +131,7 @@ const Minter = (props) => {
         <input
           type="text"
           placeholder="Link to Asset..."
+          value={url}
           onChange={(event) => 
             dispatch({
               type: "TEXT_INPUT",
@@ -147,6 +145,7 @@ const Minter = (props) => {
         <input
           type="text"
           placeholder="Enter NFT Name..."
+          value={name}
           onChange={(event) => 
             dispatch({
               type: "TEXT_INPUT",
@@ -160,6 +159,7 @@ const Minter = (props) => {
         <input
           type="text"
           placeholder="Enter NFT Description..."
+          value = {description}
           onChange={(event) => 
             dispatch({
               type: "TEXT_INPUT",
