@@ -105,7 +105,7 @@ export const mintNFT = async (url, name, description) => {
           ✅ Check out your transaction on Etherscan:
             <a target="_blank"
             rel='noreferrer'
-             href={'https://ropsten.etherscan.io/tx/' + txHash}>
+             href={'https://goerli.etherscan.io/tx/' + txHash}>
              Here
             </a>
           </div>
