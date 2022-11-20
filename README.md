@@ -21,7 +21,7 @@ completed
 
 
 ### Display: 
-![Display](https://res.cloudinary.com/rririsrisurisux/image/upload/v1657083463/IMG_20220706_052434_qqnae9.jpg)
+![Display](https://res.cloudinary.com/rririsrisurisux/image/upload/v1668934235/Screenshot_2022-11-20_at_9.47.08_AM_tr3qwq.png)
 
 
 ### Live Demo
@@ -31,8 +31,8 @@ completed
 
 ### Reqirement & Resources for development: 
  * Any IDE (VSCode, Bracket, Atom, Sublime e.t.c)
- * Basic knowledge in  ReactJs
  * Basic knowledge of how blockchain works
+ * Basic knowledge in  ReactJs
  * knowledge of handling  react components and lifecycles with the use of functional component and react-hooks respectively 
 
 
